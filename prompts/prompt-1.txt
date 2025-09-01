@@ -1,0 +1,34 @@
+Create a Node.js TypeScript application to solve the Gyld team re-assignment problem. The solution must be deterministic and reproducible. Use the provided files, `Candidate Brief (AI allowed).docx` and `level_a_players_csv.csv`, which are located in the same directory. The final solution must be a single, self-contained TypeScript file.
+
+The application must follow this specific advanced approach:
+
+**1. Data Processing and Scoring:**
+* Read the data from `level_a_players_csv.csv`.
+* Calculate a single, composite "Engagement Score" for each player. This score must be a weighted sum of three metrics: `historical_event_engagements`, `historical_messages_sent`, and `days_active_last_30`.
+* Normalize each of these three metrics to a 0-1 range before calculating the composite score. Use the min and max values from the entire dataset for normalization.
+
+**2. Randomized Assignment with Multiple Trials:**
+* Implement a command-line interface that accepts two parameters: `--teams [number]`, `--seed [number]` and `--debug`.
+* Use the `--seed` parameter to initialize a pseudorandom number generator for reproducibility.
+* Run the assignment algorithm for a large number of trials (e.g., 10).
+* For each trial, perform the following steps:
+    * Randomly shuffle the list of all players using the seeded PRNG.
+    * Sort the shuffled list of players by their calculated Engagement Score in descending order.
+    * Assign players to teams using a "snake draft" method: iterate through the sorted player list and assign each player to the team with the lowest current total engagement score.
+* After all trials are complete, select the trial's team assignment that resulted in the most "balanced" outcome.
+* If `--debug` flag is present, display each trial "standard deviation of the average team scores", just as info for the developer
+
+**3. Define "Balanced" and Output the Results:**
+* The measure of "balanced" is the assignment with the lowest **standard deviation of the average team scores**.
+* Print the final, most balanced team assignment to `stdout` in the format `player_id -> new_team`.
+* Print a summary of the final assignment per team, including:
+    * The team size.
+    * The average engagement score for that team.
+* Finally, print a single, 1-2 sentence justification explaining why the average engagement score is a trustworthy fairness statistic for the shuffle.
+
+**4. Additional Constraints & Requirements:**
+* The output must be a single `index.ts` file that can be compiled and run with Node.js.
+* Include all necessary libraries and logic within the single file.
+* Do not use any external files besides the input CSV.
+* The code must be well-commented to explain the logic, especially the normalization, scoring, and standard deviation calculations.
+* Provide a brief `README.md` as per the brief's requirements.
