@@ -13,7 +13,6 @@ The application must follow this specific advanced approach:
 * Run the assignment algorithm for a large number of trials (e.g., 10).
 * For each trial, perform the following steps:
     * Randomly shuffle the list of all players using the seeded PRNG.
-    * Sort the shuffled list of players by their calculated Engagement Score in descending order.
     * Assign players to teams using a "snake draft" method: iterate through the sorted player list and assign each player to the team with the lowest current total engagement score.
 * After all trials are complete, select the trial's team assignment that resulted in the most "balanced" outcome.
 * If `--debug` flag is present, display each trial "standard deviation of the average team scores", just as info for the developer
