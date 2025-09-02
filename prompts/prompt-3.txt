@@ -1,0 +1,10 @@
+Analize the code and create a readme file that contains the following sections.
+
+Run instructions
+Your approach & tradeoffs (“I did X because Y”)
+One modeling choice & why
+Tie-break rule
+Any assumptions (esp. if you used Level B)
+“If I had more time, I would…”
+Indication of whether or not you used AI for this project
+Time spent (hh:mm)
